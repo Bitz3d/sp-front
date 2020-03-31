@@ -1,0 +1,12 @@
+p {
+    color: #bf1650;
+  }
+  
+  p::before {
+    display: inline;
+    content: "⚠ ";
+  }
+
+  .login-form{
+    margin-top: 20vh;
+  }

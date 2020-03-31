@@ -1,0 +1,12 @@
+.register-form{
+    margin-top: 10vh;
+}
+
+p {
+  color: #bf1650;
+}
+
+p::before {
+  display: inline;
+  content: "⚠ ";
+}

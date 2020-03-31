@@ -1,0 +1,10 @@
+{
+    "email": "Email",
+    "password": "Password",
+    "repaedPassword": "Confirm Password",
+    "submit": "Submit",
+    "requiredError": "Required",
+    "minPasswordLength": "6 characters required",
+    "passwordsNotEqual": "Passwords must be the same",
+    "login": "Login"
+}
