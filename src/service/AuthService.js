@@ -10,7 +10,11 @@ class AuthService {
     }
 
     getUserInfo() {
-        return JSON.parse(localStorage.getItem("userInfo"));
+        return JSON.parse(localStorage.getItem("token"));
+    }
+
+    checkUserLoggedIn() {
+        return this.getUserInfo() ? true : false
     }
 
     getAuthHeader() {
@@ -18,14 +22,17 @@ class AuthService {
     }
 
     logOut() {
-        localStorage.removeItem("userInfo");
-        return axios.post(USER_API_BASE_URL + 'logout', {}, this.getAuthHeader());
+        localStorage.removeItem("token");
     }
 
-
-    getUserRoles() { 
+    getUserRoles() {
         let decodedHeader = jwtDecode(this.getUserInfo());
         return decodedHeader.scopes;
+    }
+
+    hasRole(role){
+        const roles = this.getUserRoles().split(',');
+        return roles.includes(role);
     }
 }
 

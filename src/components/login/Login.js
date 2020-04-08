@@ -1,25 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import i18n from '../../i18n';
 import './login.css';
 import AuthService from '../../service/AuthService';
 import { useHistory } from "react-router-dom";
+import { storeContext } from '../../store/Store.js'
 
 export default function Login() {
     const { register, handleSubmit, errors } = useForm();
     const history = useHistory();
+    const [state, { toggleLoggedIn }] = React.useContext(storeContext);
     const onSubmit = data => {
 
         const credentials = { username: data.username, password: data.password };
         AuthService.login(credentials).then(res => {
             if (res.status === 200) {
-                localStorage.setItem("userInfo", JSON.stringify(res.data.token));
+                localStorage.setItem("token", JSON.stringify(res.data.token));
                 history.push("/home");
-                console.log(AuthService.getUserRoles());
+                const li = AuthService.checkUserLoggedIn()
+                toggleLoggedIn(li)
                 alert("User login");
             }
         }).catch(err => {
-            alert(err.response.data)
+            alert(err.data)
         });
     };
 

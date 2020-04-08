@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import '../header.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom'
+import AuthService from '../service/AuthService';
+import {storeContext} from '../store/Store.js'
 
-export default () => {
+
+export default function Header() {
+  const [{ loggedIn }, {toggleLoggedIn}] = React.useContext(storeContext);
+
+  useEffect(() => {
+    const li = AuthService.checkUserLoggedIn()
+    toggleLoggedIn(li)
+  }, [loggedIn]);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="#">Navbar</a>
@@ -18,12 +28,13 @@ export default () => {
         </ul>
       </div>
       <div>
-      <ul className="navbar-nav mr-auto">
+        <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <Link className="nav-link" to="/register">Register </Link>
+            {loggedIn.toString()}
+            {loggedIn ? null : <Link className="nav-link" to="/register">Register </Link>}
           </li>
           <li className="nav-item active">
-            <Link className="nav-link" to="/login">Login </Link>
+            {loggedIn ? (<Link className="nav-link" to="/logout">Logout </Link>) : (<Link className="nav-link" to="/login">Login </Link>)}
           </li>
         </ul>
       </div>
