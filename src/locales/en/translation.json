@@ -6,5 +6,12 @@
     "requiredError": "Required",
     "minPasswordLength": "6 characters required",
     "passwordsNotEqual": "Passwords must be the same",
-    "login": "Login"
+    "login": "Login",
+    "fileUplaod": "File Upload",
+    "chooseFile": "Choose file",
+    "uplaod": "Upload",
+    "noFile": "Please add the files!",
+    "wrongFileFormat": "Invalid file format",
+    "unknownError": "There's been an error. Please contact Support",
+    "weldingUploadOk": "Welding points have been added to the list of welding points"
 }

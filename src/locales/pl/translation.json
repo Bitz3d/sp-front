@@ -6,5 +6,12 @@
     "required": "Wymagane",
     "minPasswordLength": "Minimum 6 znaków",
     "passwordsNotEqual": "Hasła muszą być takie same",
-    "login": "Zaloguj"
+    "login": "Zaloguj",
+    "fileUplaod": "Dodaj plik",
+    "chooseFile": "Wybierz plik",
+    "uplaod": "Dodaj",
+    "noFile": "Prosze dodać pliki!",
+    "wrongFileFormat": "Niepoprawny format pliku",
+    "unknownError" : "Wystąpił błąd. Prosimy o kontakt z Supportem",
+    "weldingUploadOk" : "Punkty zgrzewcze zostały porawnie dodane do listy"
 }

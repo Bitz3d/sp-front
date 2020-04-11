@@ -1,12 +1,10 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode'
 
-const USER_API_BASE_URL = 'http://localhost:8080/token/';
-
 class AuthService {
 
     login(credentials) {
-        return axios.post(USER_API_BASE_URL + "generate-token", credentials);
+        return axios.post(process.env.REACT_APP_SERVER + "/token/generate-token", credentials);
     }
 
     getUserInfo() {

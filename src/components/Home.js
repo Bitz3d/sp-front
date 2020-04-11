@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react';
-import AuthService from '../service/AuthService';
-
+import i18n from '../i18n';
+import FileUplaod from '../components/fileUpload/FileUplaod'
 
 export default function Home() {
 
-    useEffect(()=>{
-        AuthService.hasRole('ROLE_USER')
+    useEffect(() => {
     })
     return (
-        <div>
-            Home
+        <div className="container mt-4">
+            <h4 className="display-4 text-center mb-4">
+                 {i18n.t('fileUplaod')}
+            </h4>
+            <FileUplaod></FileUplaod>
         </div>
     )
 }

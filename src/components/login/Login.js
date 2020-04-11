@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import i18n from '../../i18n';
 import './login.css';
@@ -16,7 +16,7 @@ export default function Login() {
         AuthService.login(credentials).then(res => {
             if (res.status === 200) {
                 localStorage.setItem("token", JSON.stringify(res.data.token));
-                history.push("/home");
+                history.push("/");
                 const li = AuthService.checkUserLoggedIn()
                 toggleLoggedIn(li)
                 alert("User login");
