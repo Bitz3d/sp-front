@@ -4,6 +4,7 @@ import Register from './components/register/Register';
 import Home from './components/Home.js';
 import Header from './components/Header.js';
 import Logout from './components/logout/Logout.js'
+import FileUplaod from './components/fileUpload/FileUplaod'
 import './index.css'
 import { I18nextProvider } from "react-i18next";
 import i18n from "./i18n";
@@ -26,6 +27,7 @@ class App extends Component {
             <Router >
               <Header></Header>
               <Route exact path='/' component={Home} />
+              <Route exact path='/upload' component={FileUplaod} />
               <Route path='/login' component={Login} />
               <Route path='/register' component={Register} />
               <Route path='/logout' component={Logout} />

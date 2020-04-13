@@ -1,5 +1,8 @@
 {
     "email": "Email",
+    "home" : "Strona Główna",
+    "register": "Rejestracja",
+    "logout": "Wyloguj",
     "password": "Hasło",
     "repaedPassword": "Powtórz hasło",
     "submit": "Zapisz",
@@ -13,5 +16,7 @@
     "noFile": "Prosze dodać pliki!",
     "wrongFileFormat": "Niepoprawny format pliku",
     "unknownError" : "Wystąpił błąd. Prosimy o kontakt z Supportem",
-    "weldingUploadOk" : "Punkty zgrzewcze zostały porawnie dodane do listy"
+    "weldingUploadOk" : "Punkty zgrzewcze zostały porawnie dodane do listy",
+    "noModFilesFound" : "Backup nie zawiera plików .mod",
+    "noWeldingSpotsFound": "Nie znaleziono punktów zgrzewczych w plikach"
 }

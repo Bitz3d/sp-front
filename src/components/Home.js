@@ -9,9 +9,8 @@ export default function Home() {
     return (
         <div className="container mt-4">
             <h4 className="display-4 text-center mb-4">
-                 {i18n.t('fileUplaod')}
+                 STRONA GŁÓWNA
             </h4>
-            <FileUplaod></FileUplaod>
         </div>
     )
 }
