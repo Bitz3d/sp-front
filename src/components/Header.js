@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import AuthService from '../service/AuthService';
 import { storeContext } from '../store/Store.js'
 import i18n from '../i18n';
+import Dropdown from 'react-bootstrap/Dropdown'
 
 
 
@@ -28,6 +29,19 @@ export default function Header() {
           </li>
           <li className="nav-item active">
             <Link className="nav-link" to="/upload">{i18n.t('fileUplaod')} <span className="sr-only">(current)</span></Link>
+          </li>
+          <li className="nav-item active">
+            <Link className="nav-link" to="/spot-table">{i18n.t('spotTable')} <span className="sr-only">(current)</span></Link>
+          </li>
+          <li>
+            <Dropdown>
+              <Dropdown.Toggle variant="Secondary" id="dropdown-basic">
+              {i18n.t('natureOfCode')}
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item><Link className="nav-link" to="/random-walker">{i18n.t('randomWalker')} <span className="sr-only">(current)</span></Link></Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </li>
         </ul> : null}
       </div>

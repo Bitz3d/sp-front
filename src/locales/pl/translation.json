@@ -18,5 +18,14 @@
     "unknownError" : "Wystąpił błąd. Prosimy o kontakt z Supportem",
     "weldingUploadOk" : "Punkty zgrzewcze zostały porawnie dodane do listy",
     "noModFilesFound" : "Backup nie zawiera plików .mod",
-    "noWeldingSpotsFound": "Nie znaleziono punktów zgrzewczych w plikach"
+    "noWeldingSpotsFound": "Nie znaleziono punktów zgrzewczych w plikach",
+    "spotTable" : "Punkty zgrzewcze",
+    "natureOfCode" : "Nature of code",
+    "randomWalker": "Chodziarz",
+    "show": "Pokaż",
+    "spotName": "Nazwa",
+    "modelName": "Model",
+    "pointX": "Pozycja X",
+    "pointY": "Pozycja Y",
+    "pointZ": "Pozycja Z"
 }
