@@ -1,28 +1,32 @@
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 import i18n from '../../i18n'
 import axios from 'axios';
 import AuthService from '../../service/AuthService';
-import Message from '../message/Message'
-// import ProgressBar from  '../progressBar/ProgressBar'
 import { ProgressBar } from 'react-bootstrap'
+import { Alert } from 'react-bootstrap'
+
 
 const FileUplaod = () => {
-    const [file, setFile] = useState('');
+    const [files, setFiles] = useState([]);
     const [fileName, setFileName] = useState(i18n.t('chooseFile'))
     const [message, setMessage] = useState('')
     const [statusCode, setStatusCode] = useState('')
     const [uploadProcentage, setUploadProcentage] = useState(0)
 
     const onChange = e => {
-        setFile(e.target.files[0]);
-        const fName = e.target.files[0].name ? e.target.files[0].name : '';
+        setFiles(e.target.files);
+        const fName = e.target.files[0] ? e.target.files[0].name : '';
         setFileName(fName);
     }
 
     const onSubmit = async e => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('files', file)
+
+        for (let index = 0; index < files.length; index++) {
+            formData.append('files', files[index]);
+
+        }
         const token = AuthService.getUserInfo();
 
         try {
@@ -34,30 +38,37 @@ const FileUplaod = () => {
                 onUploadProgress: progressEvent => {
                     setUploadProcentage(parseInt(Math.round((progressEvent.loaded * 100) / progressEvent.total)));
                     //clear progresss bar
-                    setTimeout(() => setUploadProcentage(0), 5000);
+                    setTimeout(() => setUploadProcentage(0), 3000);
                 },
 
             });
             setMessage(res.data);
-            setStatusCode(res.status);
+            setStatusCode('success');
         } catch (error) {
             setMessage(error.response.data);
-            setStatusCode(error.response.status);
+            setStatusCode('danger');
         }
     }
 
     return (
-        <Fragment>
-            {message ? <Message msg={message} status={statusCode}></Message> : null}
+
+        <div className="container mt-4">
+            <h4 className="display-4 text-center mb-4">
+                {i18n.t('fileUplaod')}
+            </h4>
+            {message ? (<Alert variant={statusCode} onClose={() => setMessage(null)} dismissible>
+                <Alert.Heading>{i18n.t(message)}</Alert.Heading>
+            </Alert>) : null}
             <form onChange={onChange} onSubmit={onSubmit}>
                 <div className="custom-file">
-                    <input type="file" className="custom-file-input" id="customFile" />
+                    <input type="file" className="custom-file-input" id="customFile" multiple />
                     <label className="custom-file-label" htmlFor="customFile" data-browse={i18n.t('chooseFile')} >{fileName}</label>
                 </div>
-                <ProgressBar animated now={uploadProcentage} className='mt-2' label={`${uploadProcentage}%`}/>
+                <ProgressBar animated now={uploadProcentage} className='mt-2' label={`${uploadProcentage}%`} />
                 <button type="submit" value={i18n.t('uplaod')} className="btn btn-primary btn-block mt-4">{i18n.t('uplaod')}</button>
             </form>
-        </Fragment>
+        </div>
+
     )
 }
 

@@ -1,5 +1,8 @@
 {
     "email": "Email",
+    "home" : "Home Page",
+    "register": "Register",
+    "logout": "Logout",
     "password": "Password",
     "repaedPassword": "Confirm Password",
     "submit": "Submit",
@@ -13,5 +16,16 @@
     "noFile": "Please add the files!",
     "wrongFileFormat": "Invalid file format",
     "unknownError": "There's been an error. Please contact Support",
-    "weldingUploadOk": "Welding points have been added to the list of welding points"
+    "weldingUploadOk": "Welding points have been added to the list of welding points",
+    "noModFilesFound": "Backup does not contain .mod files",
+    "noWeldingSpotsFound": "No welding points were found in the files",
+    "spotTable" : "Welding Spots",
+    "natureOfCode" : "Nature of code",
+    "randomWalker": "Random walker",
+    "show": "Show",
+    "spotName": "Name",
+    "modelName": "Model",
+    "pointX": "Position X",
+    "pointY": "Position Y",
+    "pointZ": "Position Z"
 }
