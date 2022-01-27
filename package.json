@@ -25,7 +25,7 @@
     "react-spring": "^8.0.27",
     "react-table": "^7.0.4",
     "react-three-fiber": "^4.1.1",
-    "three": "^0.115.0",
+    "three": "^0.137.0",
     "three.meshline": "^1.2.0"
   },
   "scripts": {
